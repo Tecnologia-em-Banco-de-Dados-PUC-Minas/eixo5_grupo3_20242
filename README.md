@@ -12,7 +12,7 @@ Para isso, utilizaremos dados da web com informações de quantidade de medalhas
 * Felipe Siman Nogueira
 * Gabriel Alves Coelho
 * Letícia Dumêt Passos
-* Letícia Dumêt Passos
+* Matheus Bragança Soares de Oliveira
 * Priscila Costa da Silva
 * Vinícius Evangelista
 
