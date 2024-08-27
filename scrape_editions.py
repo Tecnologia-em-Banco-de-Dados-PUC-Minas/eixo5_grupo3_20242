@@ -31,11 +31,11 @@ def get_editions():
             editions = pd.concat(dfs)
         
         else:
-            print("Failed to retrieve the webpage. Status code:", response.status_code)
+            print(f"Failed to retrieve the {editions_url} webpage. Status code:", response.status_code)
     except Exception as e:
         print(e)
 
-    editions.to_csv('datalake/bronze/editions.csv',index=False)
+    editions.to_csv('datalake/bronze/editions.csv', index=False)
 
 
 if __name__ == "__main__":

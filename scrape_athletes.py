@@ -71,14 +71,14 @@ def get_athletes():
 
             else:
                 errors.append(i)
-                print("Failed to retrieve the webpage. Status code:", response.status_code)
+                print(f"Failed to retrieve the {athlete_url} webpage. Status code:", response.status_code)
                 print(f"index {i}")
         except Exception as e:
             errors.append(i)
             print(f"Error for index {i}")
             print(e)
 
-    bios.to_csv('datalake/bronze/athlete_bios.csv',index=False)
+    bios.to_csv('datalake/bronze/athlete_bios.csv', index=False)
     results.to_csv('datalake/bronze/athlete_results.csv', index=False)
 
     if len(errors) > 0:
