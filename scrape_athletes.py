@@ -5,15 +5,15 @@ from io import StringIO
 
 
 def get_athlete_bios(soup, id):
-    table = soup.find("table", {"class": "biodata"})
-    df = pd.read_html(StringIO(str(table)), index_col=0, dtype_backend="pyarrow")[0]
+    table = soup.find('table', {'class': 'biodata'})
+    df = pd.read_html(StringIO(str(table)), index_col=0, dtype_backend='pyarrow')[0]
     output_df = df.T
     output_df['athlete_id'] = id
     return output_df
 
 
 def get_athlete_results(soup, id):
-    table = soup.find("table", {"class": "table"})
+    table = soup.find('table', {'class': 'table'})
 
     df = pd.read_html(StringIO(str(table)))[0]
 
@@ -40,7 +40,7 @@ def get_athlete_results(soup, id):
     
 def get_athletes():
     # URL of the website to scrape
-    base_athlete_url = "https://www.olympedia.org/athletes"
+    base_athlete_url = 'https://www.olympedia.org/athletes'
 
     SIZE = 200000
     bios = pd.DataFrame()
@@ -54,13 +54,13 @@ def get_athletes():
             print(i)
         try:
             # Send a GET request to the website
-            athlete_url = f"{base_athlete_url}/{i}"
+            athlete_url = f'{base_athlete_url}/{i}'
             response = requests.get(athlete_url, timeout=60)
 
             # Check if the request was successful
             if response.status_code == 200:
                 # Parse the HTML content using BeautifulSoup
-                soup = BeautifulSoup(response.content, "html.parser")
+                soup = BeautifulSoup(response.content, 'html.parser')
 
                 # To do: Write your scraping logic here
                 bio = get_athlete_bios(soup, i)
@@ -71,20 +71,20 @@ def get_athletes():
 
             else:
                 errors.append(i)
-                print(f"Failed to retrieve the {athlete_url} webpage. Status code:", response.status_code)
-                print(f"index {i}")
+                print(f'Failed to retrieve the {athlete_url} webpage. Status code:', response.status_code)
+                print(f'index {i}')
         except Exception as e:
             errors.append(i)
-            print(f"Error for index {i}")
+            print(f'Error for index {i}')
             print(e)
 
     bios.to_csv('datalake/bronze/athlete_bios.csv', index=False)
     results.to_csv('datalake/bronze/athlete_results.csv', index=False)
 
     if len(errors) > 0:
-        with open("athlete_errors_list.txt", "w") as output:
+        with open('athlete_errors_list.txt', 'w') as output:
             output.write(str(errors))
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     get_athletes()
