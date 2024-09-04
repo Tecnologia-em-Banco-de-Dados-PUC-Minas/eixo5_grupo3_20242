@@ -22,8 +22,8 @@ def get_athlete_results(soup, id):
     df['NOC'] = None
     df['Discipline'] = None
     
-    rows_to_keep = df.index[df['Games'].isna()].tolist()
-    rows_with_noc = df.index[~df['Games'].isna()].tolist()
+    rows_to_keep = df.index[df['NOC / Team'].isna()].tolist()
+    rows_with_noc = df.index[~df['NOC / Team'].isna()].tolist()
 
     df.loc[rows_with_noc, 'NOC'] = df.loc[rows_with_noc, 'NOC / Team']
     df.loc[rows_with_noc, 'Discipline'] = df.loc[rows_with_noc, 'Discipline (Sport) / Event']
@@ -41,6 +41,10 @@ def get_athlete_results(soup, id):
 def get_athletes():
     # URL of the website to scrape
     base_athlete_url = 'https://www.olympedia.org/athletes'
+
+    # Normal - 1 - 149814
+    # Some between, like 700000
+    # Youth - 1301200 - 1304099
 
     SIZE = 200000
     bios = pd.DataFrame()
