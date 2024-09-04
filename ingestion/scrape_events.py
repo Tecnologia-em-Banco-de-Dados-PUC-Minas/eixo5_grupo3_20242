@@ -43,9 +43,9 @@ def get_events():
                 if discipline_tag:
                     current_discipline = discipline_tag.text.strip().replace('\n', ' ')
                 else:
-                    event_tag = row.find('a')
+                    event_tag = row.find('td')
                     if event_tag and current_discipline:
-                        event_name = event_tag.text.strip()
+                        event_name = event_tag.text.strip().replace('\n', ' ')
                         discipline.append(current_discipline)
                         events.append(event_name)
 
