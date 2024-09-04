@@ -24,8 +24,8 @@ def get_editions():
                     current_subtitle = element.get_text(strip=True)
                 elif element.name == 'table':
                     df = pd.read_html(StringIO(str(element)))[0]
-                    df['title'] = current_title
-                    df['subtitle'] = current_subtitle
+                    df['type'] = current_title
+                    df['season'] = current_subtitle
                     dfs.append(df)
 
             editions = pd.concat(dfs)
