@@ -2,9 +2,7 @@ import pandas as pd
 
 
 def process_athlete_bios():
-    athletes = pd.read_csv('datalake/bronze/athlete_bios.csv')
-
-    df = athletes.copy()
+    df = pd.read_csv('datalake/bronze/athlete_bios.csv')
 
     # Remove the "•" from the Used name
     df['name'] = df['Used name'].str.replace("•", " ")
