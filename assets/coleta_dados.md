@@ -6,7 +6,7 @@ Os scripts de scrape podem ser encontrados na pasta [ingestion](../ingestion/) d
 
 Os dados coletados através do scrape podem ser encontrados na pasta [datalake/bronze](../datalake/bronze) deste projeto.
 
-Abaixo temos a lista dos urls bases que serão utilizados no scrape e seus respectivos dados de retorno no datalake:
+Abaixo temos a lista dos urls bases que foram utilizados no scrape e seus respectivos dados de retorno no datalake:
 
 - https://www.olympedia.org/athletes
   - athlete_bios - dados biográficos dos atletas
