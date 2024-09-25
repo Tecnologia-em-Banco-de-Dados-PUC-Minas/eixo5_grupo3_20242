@@ -1,3 +1,5 @@
+import os
+from datetime import datetime
 import pandas as pd
 
 
@@ -24,8 +26,12 @@ def process_athlete_results():
                     'year', 'season', 'discipline', 'event', 'team', 'youth_event']
     df = df[colums_to_keep]
 
+    # Define the directory and create it if it doesn't exist
+    directory = 'datalake/silver/athlete_results'
+    os.makedirs(directory, exist_ok=True)
+
     # Write to parquet
-    df.to_parquet('datalake/silver/athlete_results.parquet')
+    df.to_parquet(f'{directory}/parquet-data-{datetime.now().strftime("%Y-%m-%d-%H-%M-%S")}.parquet')
 
 
 if __name__ == '__main__':

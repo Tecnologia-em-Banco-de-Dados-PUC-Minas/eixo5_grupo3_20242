@@ -1,3 +1,5 @@
+import os
+from datetime import datetime
 import pandas as pd
 
 
@@ -55,8 +57,12 @@ def process_editions():
                       'competition_start', 'competition_end', 'war_related_cancellation']
     df = df[colums_to_keep]
 
+    # Define the directory and create it if it doesn't exist
+    directory = 'datalake/silver/editions'
+    os.makedirs(directory, exist_ok=True)
+
     # Write to parquet
-    df.to_parquet('datalake/silver/editions.parquet')
+    df.to_parquet(f'{directory}/parquet-data-{datetime.now().strftime("%Y-%m-%d-%H-%M-%S")}.parquet')
 
 
 if __name__ == '__main__':

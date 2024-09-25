@@ -1,3 +1,5 @@
+import os
+from datetime import datetime
 import pandas as pd
 
 
@@ -44,8 +46,12 @@ def process_athlete_bios():
                       'died_date', 'died_year', 'died_city', 'died_region', 'died_country']
     df = df[colums_to_keep]
 
+    # Define the directory and create it if it doesn't exist
+    directory = 'datalake/silver/athlete_bios'
+    os.makedirs(directory, exist_ok=True)
+
     # Write to parquet
-    df.to_parquet('datalake/silver/athlete_bios.parquet')
+    df.to_parquet(f'{directory}/parquet-data-{datetime.now().strftime("%Y-%m-%d-%H-%M-%S")}.parquet')
 
 
 if __name__ == '__main__':
