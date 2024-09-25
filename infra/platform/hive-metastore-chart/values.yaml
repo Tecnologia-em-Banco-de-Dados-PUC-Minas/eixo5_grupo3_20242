@@ -1,0 +1,31 @@
+image:
+  repository: bitsondatadev/hive-metastore
+  tag: latest
+  pullPolicy: IfNotPresent
+
+mariadb:
+  auth:
+    username: hive
+    database: metastore
+    rootPassword: root
+    password: root
+
+replicas: 1
+resources: {}
+conf:
+  hiveSite:
+    hive_metastore_uris: thrift://hive-metastore:9083
+    hive.metastore.warehouse.dir: s3a://metastore/warehouse/
+    fs.s3a.impl: org.apache.hadoop.fs.s3a.S3AFileSystem
+    fs.s3a.access.key: data-lake
+    fs.s3a.secret.key: 12620ee6-2162-11ee-be56-0242ac120002
+    fs.s3a.endpoint: http://minio.deepstorage.svc.Cluster.local
+    fs.s3a.path.style.access: true
+    fs.s3a.connection.ssl.enabled: false
+
+env:
+  - name: SECRET_KEY
+    valueFrom:
+      secretKeyRef:
+        name: hive-metastore-secret-key
+        key: password
