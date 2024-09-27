@@ -1,10 +1,12 @@
 import os
 from datetime import datetime
 import pandas as pd
+
+from data_pipeline.constants import RAW_PATH, PREPROCESSED_PATH
     
 
 def process_events():
-    df = pd.read_csv('datalake/bronze/events.csv')
+    df = pd.read_csv(f'{RAW_PATH}/events.csv')
 
     # Get rid of the "(discontinued)" from the Event column
     df['discontinued'] = df['Event'].str.extract(r'\(([^)]+)\)$')
@@ -20,7 +22,7 @@ def process_events():
     df.columns = df.columns.str.lower().str.replace(' ', '_')
 
     # Define the directory and create it if it doesn't exist
-    directory = 'datalake/silver/events'
+    directory = f'{PREPROCESSED_PATH}/events'
     os.makedirs(directory, exist_ok=True)
 
     # Write to parquet

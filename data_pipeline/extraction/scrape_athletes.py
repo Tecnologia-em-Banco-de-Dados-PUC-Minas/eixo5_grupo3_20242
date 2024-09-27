@@ -3,6 +3,8 @@ import pandas as pd
 from bs4 import BeautifulSoup
 from io import StringIO
 
+from data_pipeline.constants import BASE_URL, RAW_PATH
+
 
 def get_athlete_bios(soup, id):
     table = soup.find('table', {'class': 'biodata'})
@@ -40,7 +42,7 @@ def get_athlete_results(soup, id):
     
 def get_athletes():
     # URL of the website to scrape
-    base_athlete_url = 'https://www.olympedia.org/athletes'
+    base_athlete_url = f'{BASE_URL}/athletes'
 
     # Normal - 1 - 149814
     # Some between, like 700000
@@ -52,8 +54,8 @@ def get_athletes():
     errors = []
     for i in range(1, SIZE):
         if i % 5000 == 0 and i != 0:
-            bios.to_csv(f'datalake/bronze/samples/athlete_bios_{i}.csv', index=False)
-            results.to_csv(f'datalake/bronze/samples/athlete_results_{i}.csv', index=False)
+            bios.to_csv(f'{RAW_PATH}/samples/athlete_bios_{i}.csv', index=False)
+            results.to_csv(f'{RAW_PATH}/samples/athlete_results_{i}.csv', index=False)
         elif i % 250 == 0:
             print(i)
         try:
@@ -82,8 +84,8 @@ def get_athletes():
             print(f'Error for index {i}')
             print(e)
 
-    bios.to_csv('datalake/bronze/athlete_bios.csv', index=False)
-    results.to_csv('datalake/bronze/athlete_results.csv', index=False)
+    bios.to_csv(f'{RAW_PATH}/athlete_bios.csv', index=False)
+    results.to_csv(f'{RAW_PATH}/athlete_results.csv', index=False)
 
     if len(errors) > 0:
         with open('athlete_errors_list.txt', 'w') as output:

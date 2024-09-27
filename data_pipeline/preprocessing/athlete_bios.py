@@ -2,9 +2,11 @@ import os
 from datetime import datetime
 import pandas as pd
 
+from data_pipeline.constants import RAW_PATH, PREPROCESSED_PATH
+
 
 def process_athlete_bios():
-    df = pd.read_csv('datalake/bronze/athlete_bios.csv')
+    df = pd.read_csv(f'{RAW_PATH}/athlete_bios.csv')
 
     # Remove the "•" from the Used name
     df['name'] = df['Used name'].str.replace("•", " ")
@@ -47,7 +49,7 @@ def process_athlete_bios():
     df = df[colums_to_keep]
 
     # Define the directory and create it if it doesn't exist
-    directory = 'datalake/silver/athlete_bios'
+    directory = f'{PREPROCESSED_PATH}/athlete_bios'
     os.makedirs(directory, exist_ok=True)
 
     # Write to parquet

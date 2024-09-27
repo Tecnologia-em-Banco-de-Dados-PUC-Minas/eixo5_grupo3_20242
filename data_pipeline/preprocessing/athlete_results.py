@@ -2,9 +2,11 @@ import os
 from datetime import datetime
 import pandas as pd
 
+from data_pipeline.constants import RAW_PATH, PREPROCESSED_PATH
+
 
 def process_athlete_results():
-    df = pd.read_csv('datalake/bronze/athlete_results.csv', dtype={'Nationality': str})
+    df = pd.read_csv(f'{RAW_PATH}/athlete_results.csv', dtype={'Nationality': str})
 
     # Get place column
     df['place'] = df['Pos'].str.extract(r'(\d+)')
@@ -27,7 +29,7 @@ def process_athlete_results():
     df = df[colums_to_keep]
 
     # Define the directory and create it if it doesn't exist
-    directory = 'datalake/silver/athlete_results'
+    directory = f'{PREPROCESSED_PATH}/athlete_results'
     os.makedirs(directory, exist_ok=True)
 
     # Write to parquet

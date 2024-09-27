@@ -2,6 +2,8 @@ import os
 from datetime import datetime
 import pandas as pd
 
+from data_pipeline.constants import RAW_PATH, PREPROCESSED_PATH
+
 
 def format_date(date, year):
     if pd.isna(date):
@@ -27,7 +29,7 @@ def format_competition_start(date, competition_end):
     
 
 def process_editions():
-    df = pd.read_csv('datalake/bronze/editions.csv')
+    df = pd.read_csv(f'{RAW_PATH}/editions.csv')
 
     # Remove Ancient Olympic Games
     df = df[~df['type'].isin(['Ancient Olympic Games'])]
@@ -58,7 +60,7 @@ def process_editions():
     df = df[colums_to_keep]
 
     # Define the directory and create it if it doesn't exist
-    directory = 'datalake/silver/editions'
+    directory = f'{PREPROCESSED_PATH}/editions'
     os.makedirs(directory, exist_ok=True)
 
     # Write to parquet

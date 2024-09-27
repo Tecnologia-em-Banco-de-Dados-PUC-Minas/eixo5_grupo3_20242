@@ -3,9 +3,11 @@ import pandas as pd
 from bs4 import BeautifulSoup
 from io import StringIO
 
+from data_pipeline.constants import BASE_URL, RAW_PATH
+
 
 def get_editions():
-    editions_url = 'https://www.olympedia.org/editions'
+    editions_url = f'{BASE_URL}/editions'
 
     try:
         response = requests.get(editions_url, timeout=60)
@@ -35,7 +37,7 @@ def get_editions():
     except Exception as e:
         print(e)
 
-    editions.to_csv('datalake/bronze/editions.csv', index=False)
+    editions.to_csv(f'{RAW_PATH}/editions.csv', index=False)
 
 
 if __name__ == '__main__':
