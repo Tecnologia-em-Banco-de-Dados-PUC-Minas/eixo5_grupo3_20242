@@ -23,9 +23,9 @@ Para isso, utilizaremos dados da web com informações de quantidade de medalhas
 
 | Etapa         | Atividades |
 |  :----:   | ----------- |
-| ETAPA 1        |[Documentação de Contexto](assets/inicio_do_projeto.md) |
-| ETAPA 2        |[Coleta de Dados](assets/coleta_dados.md) |
-| ETAPA 3        |[Pré-processamento](assets/pre_processamento.md) |
-| ETAPA 4        |[Aprendizagem de Máquina](assets/aprendizado_maquina_rev.md)|
-| ETAPA 5        |[Análise dos Resultados](assets/analise_resultados.md) |
-| ETAPA 6        |[Otimização](assets/Otimizacao.md) |
+| ETAPA 1        |[Documentação de Contexto](assets/1_inicio_projeto.md) |
+| ETAPA 2        |[Coleta de Dados](assets/2_coleta_dados.md) |
+| ETAPA 3        |[Pré-processamento](assets/3_pre_processamento.md) |
+| ETAPA 4        |[Aprendizagem de Máquina](assets/4_aprendizagem_maquina.md)|
+| ETAPA 5        |[Análise dos Resultados](assets/5_analise_resultados.md) |
+| ETAPA 6        |[Otimização](assets/6_otimizacao.md) |
