@@ -9,11 +9,11 @@ Os dados coletados através do scrape podem ser encontrados no diretório [datal
 Abaixo temos a lista dos urls bases que foram utilizados no scrape e seus respectivos dados de retorno no datalake:
 
 - https://www.olympedia.org/athletes
-    - athlete_bios - dados biográficos dos atletas
-    - athlete_results - resultados dos atletas nos jogos olímpicos
+    - **athlete_bios** - dados biográficos dos atletas
+    - **athlete_results** - resultados dos atletas nos jogos olímpicos
 - https://www.olympedia.org/editions
-    - editions - edições dos jogos olímpicos
-- https://www.olympedia.org/event_names
-    - events - lista dos eventos olímpicos, sendo este uma subcategoria dos esportes
+    - **editions** - edições dos jogos olímpicos
 - https://www.olympedia.org/sports
-    - sports - lista dos esportes olímpicos
+    - **sports** - lista dos esportes olímpicos
+- https://www.olympedia.org/event_names
+    - **events** - lista dos eventos olímpicos, sendo este uma subcategoria dos esportes
