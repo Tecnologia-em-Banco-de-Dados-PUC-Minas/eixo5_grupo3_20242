@@ -1,3 +1,5 @@
+O script utilizado para a aprendizagem de máquina pode ser encontrado no diretório [machine_learning](../machine_learning/) na raiz do projeto.
+
 Para aplicar algum tipo de algoritmo de aprendizagem de máquina, é necessário realizar a coleta dos dados. Utilizando o Python, importamos as bibliotecas necessárias para o realizarmos o projeto e carregamos os dados em dois Dataframes diferentes.
 
 <img src="images/ml1.png">
