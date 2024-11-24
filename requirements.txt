@@ -8,3 +8,4 @@ load-dotenv==0.1.0
 psycopg2==2.9.9
 scikit-learn==1.5.2
 matplotlib==3.9.2
+seaborn==0.13.2
