@@ -1,4 +1,4 @@
-Após a coleta dos dados e sua disponibilização na camada raw do nosso [datalake](../datalake/) é hora de fazermos o pré-processamento desses dados e disponilizarmos na camada bronze.  
+Após a coleta dos dados e sua disponibilização na camada raw do nosso [datalake](../datalake/) é hora de fazermos o pré-processamento desses dados e disponibilizarmos na camada bronze.  
 Para isso iremos utilizar a linguagem de programação Python, usando majoritariamente a biblioteca Pandas, para manipulação e transformação dos dados. 
 
 Os scripts do pré-processamento de dados podem ser encontrados no diretório [data_pipeline/preprocessing](../data_pipeline/preprocessing/) deste projeto.

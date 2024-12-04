@@ -6,6 +6,6 @@ Os dados disponibilizados estão no site https://www.olympedia.org/ e a ferramen
 
 Com o avanço da internet, cada vez mais temos dados disponíveis na web sem estrutura e, por isso, surgiu a técnica de web scraping, onde podemos extrair os dados nos sites disponíveis de forma automatizada e, assim, podemos organizar esses dados para facilitar a análise dos mesmos em outras ferramentas.  
 
-Após realizar a coleta dos dados, iremos aplicar técnicas de análise de dados para entender o comportamento das informações e, então, aplicar técnicas de machine learning para prever futuros resultados com base nos dados históricos analisados. As técnicas de machine learming estão ficando cada vez melhores graças ao avanço das IA's.  
+Após realizar a coleta dos dados, iremos aplicar técnicas de análise de dados para entender o comportamento das informações e, então, aplicar técnicas de machine learning para prever futuros resultados com base nos dados históricos analisados. As técnicas de machine learning estão ficando cada vez melhores graças ao avanço das IA's.  
 
 O objetivo final do trabalho será entregar um algoritmo que seja capaz de entender os dados fornecidos das olimpíadas e entregar uma probabilidade de um resultado ocorrer na próxima competição. Para isso, precisamos realizar vários treinamentos com o algoritmo de machine learning, onde o mesmo será capaz de entender os novos dados e realizar a análise da probabilidade de vitória de um país ou atleta em uma modalidade.  
