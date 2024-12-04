@@ -1,7 +1,7 @@
 # Eixo-5
 Arquitetura de Dados em Nuvem
 
-# OLÍMPIADAS: ANÁLISE HISTÓRICA E PREVISÃO DOS PRÓXIMOS RESULTADOS
+# OLIMPÍADAS: ANÁLISE HISTÓRICA E PREVISÃO DOS PRÓXIMOS RESULTADOS
 `Tecnologia em Banco de Dados - EAD`
 `2024/02`
 
